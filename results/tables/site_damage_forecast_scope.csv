@@ -1,0 +1,4 @@
+component,status,meaning
+construction pressure,forecasted,Dynamic World built-probability trend within 2 km; not probability of archaeological damage
+quarry pressure,unavailable,quarry classifier has not passed required visual validation
+damage outcome,unavailable,no longitudinal field-verified damage labels

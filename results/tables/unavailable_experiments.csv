@@ -2,4 +2,4 @@ module,status,available_primary_dates,required_action,available_geology_feature
 temporal_holdout,not_estimable,0.0,obtain documented discovery/publication dates from approved open sources,
 geology_transfer,not_run,,ingest and license-check an open lithology layer,False
 protected_site_gap,not_run,,approve and ingest an open protected-area polygon layer,False
-time_machine,not_run,,pilot choices and historical-source downloads require user approval,False
+time_machine_corona,manual_action_required,,authenticate to EarthExplorer and inspect suitable public-domain frames,False

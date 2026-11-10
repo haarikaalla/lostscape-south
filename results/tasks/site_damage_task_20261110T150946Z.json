@@ -1,0 +1,9 @@
+{
+  "task_id": "VOH4NSIC4XRCMEWCZIPBYA67",
+  "description": "lostscape_site_damage_history",
+  "sites": 1465,
+  "years": "2016-2025",
+  "buffer_m": 2000,
+  "scale_m": 1000,
+  "pressure": "Dynamic World built probability only; quarry unavailable"
+}

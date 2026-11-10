@@ -15,6 +15,6 @@ privacy:
 test:
 	pytest -q
 
-all: inventory test
-	@echo "Earth Engine exports are asynchronous; run 'make gee-submit' then 'make gee-status'."
+all:
+	bash scripts/run_all.sh
 

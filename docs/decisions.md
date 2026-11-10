@@ -100,3 +100,16 @@
 **Decision:** Assign only Evidence Level 1 to current Atlas zones and do not run a convergence randomization test.
 **Reason:** Probability and settlement-scale satellite features share model inputs and are not independent. No verified historical-map/CORONA feature, paleo-route reconstruction, unlocated-place layer, expert review, or field verification is available.
 
+## D017 — Forecast scope and release
+
+**Date:** 2026-11-10
+**Decision:** Release only generalized construction-pressure trends and label the forecast weak; do not call the score a probability of site damage.
+**Evidence:** The all-state 2016–2020 to 2020–2025 backtest produced Spearman correlation 0.2140, with a negative result in Andhra Pradesh and near-zero result in Tamil Nadu.
+**Reason:** Built-probability trends omit actual damage outcomes, planned development, protection, permits and quarry validation. Weak backtesting does not support a stronger claim.
+
+## D018 — Skip optional tank and cluster-size models
+
+**Date:** 2026-11-10
+**Decision:** Do not train a separate ancient-water-system model from 18 tank records, and do not model burial cluster size.
+**Reason:** The tank sample is too small for the required spatial evaluation and the inventory has no reliable cluster-size label.
+

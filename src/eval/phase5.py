@@ -62,6 +62,6 @@ def main():
  pd.DataFrame(lc).to_csv(ROOT/'results/tables/landcover_transfer.csv',index=False)
 
  # Availability records: no megalithic discovery dates and no licensed lithology layer ingested yet.
- pd.DataFrame([{'module':'temporal_holdout','status':'not_estimable','available_primary_dates':0,'required_action':'obtain documented discovery/publication dates from approved open sources'}, {'module':'geology_transfer','status':'not_run','available_geology_feature':False,'required_action':'ingest and license-check an open lithology layer'}]).to_csv(ROOT/'results/tables/unavailable_experiments.csv',index=False)
+ pd.DataFrame([{'module':'temporal_holdout','status':'not_estimable','available_primary_dates':0,'required_action':'obtain documented discovery/publication dates from approved open sources'}, {'module':'geology_transfer','status':'not_run','available_geology_feature':False,'required_action':'ingest and license-check an open lithology layer'}, {'module':'protected_site_gap','status':'not_run','available_geology_feature':False,'required_action':'approve and ingest an open protected-area polygon layer'}, {'module':'time_machine_corona','status':'manual_action_required','available_geology_feature':False,'required_action':'authenticate to EarthExplorer and inspect suitable public-domain frames'}]).to_csv(ROOT/'results/tables/unavailable_experiments.csv',index=False)
  print(json.dumps({'ablation_runs':len(abl),'landcover_runs':len(lc),'ranges':ranges},indent=2))
 if __name__=='__main__': main()

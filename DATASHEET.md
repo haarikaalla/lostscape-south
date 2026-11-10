@@ -24,3 +24,7 @@ Documentation reflects survey history, accessibility, settlement/road proximity,
 
 Only coarse cells and derived non-sensitive products may be public. Precise locations, raw API responses, imagery chips revealing vulnerable sites, and private review materials remain excluded.
 
+## Current sample sizes
+
+The coarse feature pilot contains 21,732 cells and 140 observed-positive cells. State positive-cell counts are 6 Andhra Pradesh, 6 Karnataka, 8 Kerala, and 120 Tamil Nadu. These imbalances must accompany all transfer claims.
+

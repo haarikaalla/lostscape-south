@@ -93,3 +93,11 @@
 - No convergence randomization p-value was computed because no zone currently has two independent evidence layers. Historical, paleo-route and unlocated-place layers are absent; remote-sensing features already used by the model are not double-counted as independent evidence.
 - Statewide pressure growth near known sites versus matched random controls and validated quarry growth remain explicitly unavailable.
 
+## 2026-11-10 — Construction-pressure forecast and survey blind spots
+
+- Exported annual 2016–2025 Dynamic World built probability smoothed within 2 km of all 1,465 documented sites at a resource-safe 1-km scale. Precise histories remain private; public rankings use hashed ~10-km cells.
+- Backtested 2016–2020 linear trends against observed 2020–2025 change. Overall Spearman rank correlation was 0.2140 and MAE 0.02465 (bootstrap 95% CI 0.02322–0.02624). State rank correlations were -0.0946 Andhra Pradesh, 0.4408 Karnataka, 0.2388 Kerala and 0.0647 Tamil Nadu. The forecast is weak and is released only as a construction-pressure screening layer.
+- Quarry forecasting and actual site-damage forecasting remain unavailable because no validated quarry model or longitudinal damage labels exist.
+- Ranked 50 generalized survey blind-spot cells per state using model probability divided by one plus open-inventory record count. This is a documentation-density proxy, not measured survey effort; road/accessibility effort remains unavailable.
+- Inventory contains only 18 ancient-tank records, so no separate optional water-system model was run. No reliable burial cluster-size labels exist.
+
