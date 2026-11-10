@@ -68,3 +68,10 @@
 **Evidence:** The coarse join produced 6, 6, 8, and 120 positive cells for Andhra Pradesh, Karnataka, Kerala, and Tamil Nadu respectively.
 **Reason:** This directly exposes the open-inventory coverage limitation and prevents misleading generalization claims.
 
+## D012 — Do not promote the coarse PU model as superior
+
+**Date:** 2026-11-10
+**Decision:** Report histogram gradient boosting as the stronger coarse pilot model and retain PU bagging as an evaluated, currently underperforming variant.
+**Evidence:** Across 20 paired state/seed runs, mean PR-AUC was 0.01087 for calibrated PU bagging and 0.03136 for histogram gradient boosting; paired Wilcoxon p=0.18935.
+**Reason:** The project rules prohibit cherry-picking. PU assumptions and calibration are especially fragile under strong survey bias and sparse positives.
+

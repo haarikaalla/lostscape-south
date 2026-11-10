@@ -13,6 +13,7 @@ class PUBagging:
     estimators: int=25
     unlabeled_ratio: int=5
     seed: int=20261110
+    trees_per_estimator: int=150
 
     def fit(self,x: np.ndarray,y: np.ndarray):
         self.imputer_=SimpleImputer().fit(x); z=self.imputer_.transform(x)
@@ -22,7 +23,7 @@ class PUBagging:
         for i in range(self.estimators):
             sample=rng.choice(unl,size=min(len(unl),self.unlabeled_ratio*len(pos)),replace=False)
             idx=np.r_[pos,sample]; target=np.r_[np.ones(len(pos)),np.zeros(len(sample))]
-            model=RandomForestClassifier(n_estimators=250,min_samples_leaf=3,class_weight="balanced",n_jobs=-1,random_state=self.seed+i)
+            model=RandomForestClassifier(n_estimators=self.trees_per_estimator,min_samples_leaf=3,class_weight="balanced",n_jobs=-1,random_state=self.seed+i)
             model.fit(z[idx],target); self.models_.append(model)
         return self
 

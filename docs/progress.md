@@ -53,3 +53,10 @@
 - Results confirm severe sparse-state uncertainty. Aggregate PR-AUC means were 0.0314 (histogram gradient boosting), 0.0257 (random forest), and 0.0113 (regularized logistic); these are observed-label metrics, not verified discovery precision.
 - Fine patches, autocorrelation-based block finalization, PU variants, calibration/conformal evaluation, temporal holdout, and risk products remain pending. Phase 2 is complete only for the coarse tabular pilot, not the requested fine-resolution stack.
 
+## 2026-11-10 — Phase 4 coarse PU, uncertainty and conformal experiments completed
+
+- Ran PU bagging with spatially separated calibration blocks for five seeds and four held-out states (20 paired runs); saved raw metrics, uncertainty and private predictions.
+- Coarse PU mean PR-AUC was 0.01087 versus 0.03136 for the best baseline (histogram gradient boosting). The paired Wilcoxon test was not significant (p=0.18935); LostScape-PU therefore does **not** outperform the baseline in this pilot.
+- Observed-label split-conformal coverage averaged 0.92833 at nominal 0.90, with mean set size 0.93754. Sparse calibration positives make state-level estimates unstable and these values do not establish coverage for undiscovered sites.
+- Added shuffled-label controls and survey-efficiency tables/figures. Metrics count documented positive cells, not newly field-verified discoveries.
+
