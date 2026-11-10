@@ -1,0 +1,4 @@
+diagnostic,count
+high-score cells with built_probability > 0.25,48
+high-score cropland cells,120
+known-positive cells below median score,0

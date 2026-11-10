@@ -82,3 +82,9 @@
 **Evidence:** Sampled empirical 95%-sill ranges were 87.5 km for dry-season NDVI, 112.5 km for elevation, 137.5 km for rainfall, and 212.5 km for built probability.
 **Reason:** Rounding the largest sampled range upward reduces leakage risk. It also exposes instability from very few calibration blocks, which is reported rather than hidden.
 
+## D014 — Provisional threat proxy, not quarry detection
+
+**Date:** 2026-11-10
+**Decision:** Rank coarse conservation risk with a transparent proxy combining Dynamic World built probability, WorldCover cropland and bare-ground indicators. Label every output provisional.
+**Reason:** The required multi-year quarry-growth classifier and 100-cell visual validation have not been completed. Calling the proxy a quarry layer or heritage-loss rate would overstate the evidence.
+

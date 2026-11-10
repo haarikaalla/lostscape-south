@@ -67,3 +67,10 @@
 - Completed leave-one-WorldCover-class-out tests for five classes with at least five observed positives. These are land-cover transfer diagnostics, not independent discovery validation.
 - Temporal holdout is not estimable: zero of 174 primary megalithic records have a defensible discovery/documentation year. Geology transfer remains unrun because no licensed lithology feature has yet been ingested.
 
+## 2026-11-10 — Phase 6 coarse conservation and review products completed
+
+- Trained a five-seed histogram-gradient-boosting ensemble on all coarse cells and generalized predictions to hashed ~10-km public cell identifiers.
+- Produced probability, ensemble-uncertainty and provisional risk maps plus per-state top-risk tables. Risk uses only built-probability, cropland and bare-ground proxies; it is not a validated quarry-growth or heritage-loss product.
+- Created a blinded 60-cell review sheet (40 high-ranked, 20 controls) and a non-simulating analysis script. Fine Sentinel-2/NDVI/hillshade chips remain pending fine-resolution exports, so expert review must not start yet.
+- Protected-site gap analysis remains unavailable because no open protected-area polygon layer has been approved and ingested. Point protection status is not treated as an area boundary.
+
