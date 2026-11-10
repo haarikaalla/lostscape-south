@@ -45,3 +45,11 @@
 - Task IDs are cached under `results/tasks/` and can be monitored with `scripts/gee_task_status.py`.
 - These are coarse Tier-1 tabular features. Fine 10 m patches and time-series trend exports remain pending after this resource-safe validation run.
 
+## 2026-11-10 — Phase 2 coarse feature ingestion completed; Phase 3 started
+
+- Retrieved and validated all four completed private Earth Engine tables: 21,732 5-km cells (Andhra Pradesh 6,822; Karnataka 7,975; Kerala 1,594; Tamil Nadu 5,341), 28 columns each, with no missing exported values.
+- Joined coordinate-supported megalithic inventory points to cells using the predeclared 3.6-km radius: 140 positive cells (6 Andhra Pradesh, 6 Karnataka, 8 Kerala, 120 Tamil Nadu). Exact coordinates and model tables remain gitignored.
+- Ran 60 leave-one-state-out baseline evaluations (3 models x 4 held-out states x 5 seeds) with identical features and splits. Raw per-run results are in `results/tables/baseline_spatial_cv.csv`.
+- Results confirm severe sparse-state uncertainty. Aggregate PR-AUC means were 0.0314 (histogram gradient boosting), 0.0257 (random forest), and 0.0113 (regularized logistic); these are observed-label metrics, not verified discovery precision.
+- Fine patches, autocorrelation-based block finalization, PU variants, calibration/conformal evaluation, temporal holdout, and risk products remain pending. Phase 2 is complete only for the coarse tabular pilot, not the requested fine-resolution stack.
+

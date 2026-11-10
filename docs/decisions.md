@@ -55,3 +55,16 @@
 **Decision:** Use Sentinel-2 `CLOUDY_PIXEL_PERCENTAGE` only as a fast scene-level clear-observation proxy. Do not label it as pixel-validity percentage. Produce SCL-based valid-pixel QA through tiled batch exports.
 **Reason:** Even the point-sampled count mosaic traversed the entire archive and exceeded the interactive budget. Separating the proxy from the definitive tiled product avoids misrepresenting metadata as pixel QA.
 
+## D010 — Treat 5-km exports as a coarse pilot
+
+**Date:** 2026-11-10
+**Decision:** Use the completed 5-km state tables to validate ingestion, leakage controls, state transfer, and the experiment pipeline, but do not present them as the final archaeological candidate product.
+**Reason:** A 5-km sample cannot resolve individual burials, tanks, or mounds. It is scientifically useful for regional susceptibility and pipeline validation only; final candidate ranking requires finer tiled features and patches.
+
+## D011 — Preserve sparse-state results
+
+**Date:** 2026-11-10
+**Decision:** Retain all held-out state runs and report their low/unstable metrics. Do not pool away the imbalance or tune against held-out states.
+**Evidence:** The coarse join produced 6, 6, 8, and 120 positive cells for Andhra Pradesh, Karnataka, Kerala, and Tamil Nadu respectively.
+**Reason:** This directly exposes the open-inventory coverage limitation and prevents misleading generalization claims.
+
