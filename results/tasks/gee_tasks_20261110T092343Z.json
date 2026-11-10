@@ -1,0 +1,32 @@
+[
+  {
+    "kind": "features_5km",
+    "state": "Karnataka",
+    "task_id": "JJUQ66ZAZCQOV2RMBCHOY3EN",
+    "description": "lostscape_features_karnataka"
+  },
+  {
+    "kind": "features_5km",
+    "state": "Andhra Pradesh",
+    "task_id": "AKPD7LNZSMQLSMPT6NCBEQGO",
+    "description": "lostscape_features_andhra_pradesh"
+  },
+  {
+    "kind": "features_5km",
+    "state": "Tamil Nadu",
+    "task_id": "PTUQPN4X5FXDC3OK5Z3FX4LV",
+    "description": "lostscape_features_tamil_nadu"
+  },
+  {
+    "kind": "features_5km",
+    "state": "Kerala",
+    "task_id": "KOWXM2DVFRVUZZOSK4TKSEOK",
+    "description": "lostscape_features_kerala"
+  },
+  {
+    "kind": "scene_qa",
+    "state": "all",
+    "task_id": "UNKFDULXSOMEPO4UIY3JKPUV",
+    "description": "lostscape_s2_scene_qa"
+  }
+]

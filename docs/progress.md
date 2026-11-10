@@ -38,3 +38,10 @@
 - Detailed QA remains pending conversion to tiled asynchronous exports. This phase is not marked complete.
 - Added a tracked-file privacy scanner for private/raw paths, precise coordinate patterns, credentials and files larger than 10 MiB.
 
+## 2026-11-10 — Phase 2 asynchronous exports submitted
+
+- Submitted four state-tiled 5 km private feature-table exports and one combined scene-metadata QA export to the private Google Drive folder `lostscape_south_private`.
+- Feature stack includes dry/post-monsoon Sentinel-2 NDVI, NDWI and EVI medians/variability and valid counts; Sentinel-1 VV/VH medians/variability; SRTM elevation/slope/aspect; CHIRPS rainfall; ESA WorldCover; Dynamic World built probability; and grid-centre coordinates.
+- Task IDs are cached under `results/tasks/` and can be monitored with `scripts/gee_task_status.py`.
+- These are coarse Tier-1 tabular features. Fine 10 m patches and time-series trend exports remain pending after this resource-safe validation run.
+

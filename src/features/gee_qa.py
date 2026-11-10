@@ -42,11 +42,9 @@ def main() -> None:
         base=ee.ImageCollection(cfg["gee"]["datasets"]["sentinel2"]).filterBounds(geom).filterDate(*dates)
         for season,start_month,end_month in [("dry",1,3),("post_monsoon",10,12),("all",1,12)]:
             coll=base.filter(ee.Filter.calendarRange(start_month,end_month,"month"))
-            raw_count=coll.select("B4").count(); clear_count=coll.map(mask_s2).count()
-            pct=clear_count.divide(raw_count.max(1)).multiply(100).rename("valid_pct")
-            stats=pct.reduceRegion(ee.Reducer.mean(),geom,20000,bestEffort=True,maxPixels=250_000,tileScale=4).getInfo()
             n=int(coll.size().getInfo())
-            rows.append({"state":state,"season":season,"dataset":cfg["gee"]["datasets"]["sentinel2"],"requested_start":dates[0],"requested_end":dates[1],"image_count":n,"mean_valid_observation_pct":stats.get("valid_pct")})
+            mean_cloud=coll.aggregate_mean("CLOUDY_PIXEL_PERCENTAGE").getInfo()
+            rows.append({"state":state,"season":season,"dataset":cfg["gee"]["datasets"]["sentinel2"],"requested_start":dates[0],"requested_end":dates[1],"image_count":n,"mean_scene_cloud_pct":mean_cloud,"mean_scene_clear_proxy_pct":None if mean_cloud is None else 100-mean_cloud,"pixel_validity_status":"pending tiled SCL export"})
     out=ROOT/"results/tables"; out.mkdir(parents=True,exist_ok=True)
     pd.DataFrame(rows).to_csv(out/"gee_observation_qa.csv",index=False)
     probes=[]

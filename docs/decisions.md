@@ -43,3 +43,15 @@
 **Decision:** Run the archive-wide state/season clear-observation diagnostic at 20 km, after the initial 5 km synchronous reduction exceeded three minutes. Preserve 10–30 m processing for tiled, resumable batch exports.
 **Reason:** The QA statistic is a coverage diagnostic rather than a modeling feature. Coarsening it prevents an expensive interactive computation while retaining state and seasonal comparisons.
 
+## D008 — Point-sampled archive QA
+
+**Date:** 2026-11-10
+**Decision:** Replace synchronous statewide raster reduction with 40 deterministic random interior sample points per state at 5 km evaluation scale.
+**Reason:** Both 5 km and 20 km full-polygon reductions exceeded the interactive budget. Point sampling preserves an auditable state/season diagnostic while detailed rasters are produced later through tiled batch exports.
+
+## D009 — Separate metadata and pixel-validity QA
+
+**Date:** 2026-11-10
+**Decision:** Use Sentinel-2 `CLOUDY_PIXEL_PERCENTAGE` only as a fast scene-level clear-observation proxy. Do not label it as pixel-validity percentage. Produce SCL-based valid-pixel QA through tiled batch exports.
+**Reason:** Even the point-sampled count mosaic traversed the entire archive and exceeded the interactive budget. Separating the proxy from the definitive tiled product avoids misrepresenting metadata as pixel QA.
+
