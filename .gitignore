@@ -1,0 +1,17 @@
+.DS_Store
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+data/private/**
+!data/private/.gitkeep
+data/raw/downloads/**
+data/interim/**
+data/processed/private/**
+*.tif
+*.tiff
+*.zip
+*.gpkg
+*.parquet
+

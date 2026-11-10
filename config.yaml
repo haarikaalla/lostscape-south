@@ -1,0 +1,29 @@
+project:
+  name: LostScape-South
+  seed: 20261110
+  access_date: "2026-11-10"
+region:
+  states: [Karnataka, Andhra Pradesh, Tamil Nadu, Kerala]
+  include_telangana: false
+  public_grid_km: 10
+inventory:
+  deduplication_tolerance_m: 250
+  primary_min_total: 100
+  primary_min_per_block: 30
+  overpass_endpoint: https://overpass-api.de/api/interpreter
+  wikidata_endpoint: https://query.wikidata.org/sparql
+  boundary_source: geoBoundaries
+  boundary_release: gbOpen
+github:
+  repository_url: null
+gee:
+  project: null
+  datasets:
+    sentinel2: COPERNICUS/S2_SR_HARMONIZED
+    sentinel1: COPERNICUS/S1_GRD
+    dem: COPERNICUS/DEM/GLO30
+    rainfall: UCSB-CHG/CHIRPS/DAILY
+    worldcover: ESA/WorldCover/v200
+    dynamic_world: GOOGLE/DYNAMICWORLD/V1
+    landsat: LANDSAT/LC08/C02/T1_L2
+
