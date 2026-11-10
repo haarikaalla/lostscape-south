@@ -94,3 +94,9 @@
 **Decision:** Pilot southern Chennai, Tirupati–Srikalahasti and the Thrissur belt. Use Landsat Collection 2 immediately; use CORONA only after authenticated frame inspection and georeferencing; do not download historical maps until item-specific reuse rights are verified.
 **Reason:** These areas coincide with the strongest coarse provisional risk concentrations near documented megalithic records and represent contrasting development, dry-interior and humid-canopy conditions.
 
+## D016 — Atlas evidence independence
+
+**Date:** 2026-11-10
+**Decision:** Assign only Evidence Level 1 to current Atlas zones and do not run a convergence randomization test.
+**Reason:** Probability and settlement-scale satellite features share model inputs and are not independent. No verified historical-map/CORONA feature, paleo-route reconstruction, unlocated-place layer, expert review, or field verification is available.
+

@@ -1,0 +1,3 @@
+state,status,reason,baseline
+Kerala,insufficient data,verified inventory contains no settlement_mound record,
+,not run,river-distance feature not yet ingested,distance_to_river_only

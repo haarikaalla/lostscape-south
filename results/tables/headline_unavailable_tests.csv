@@ -1,0 +1,4 @@
+test,status,reason
+convergence randomization,not_estimable,only the model layer is currently available; zero zones have two independent evidence layers
+full-state pressure growth near sites vs matched random,not_estimable,statewide historical pressure samples and matched controls have not been exported
+quarry growth since 1984,not_estimable,quarry classifier has not passed 100-cell visual validation

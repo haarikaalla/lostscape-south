@@ -81,3 +81,15 @@
 - Submitted and completed private Landsat five-year dry-season pressure-index exports for the approved Chennai-south, Tirupati–Srikalahasti and Thrissur pilots. The three CSVs are awaiting local retrieval from the private Drive folder before change rates can be computed.
 - CORONA georeferencing and historical-map comparison remain pending EarthExplorer authentication, frame availability/quality review, and item-specific map rights checks.
 
+## 2026-11-10 — Phase 7 Landsat analysis and lost-settlement holdouts
+
+- Retrieved the three approved Landsat pilot tables directly into private storage and analysed eight five-year periods spanning 1985–2024. Results are spectral trends with 95% confidence intervals; they are not interpreted as counts of lost heritage features.
+- The only pilot NDBI trend whose 95% interval excluded zero was Thrissur (+0.0311 per decade, 95% CI 0.0041 to 0.0581). Cross-sensor/compositing effects and regional averaging prevent causal attribution to built growth.
+- Ran spatially buffered blind tests for verified settlement-mound records in Andhra Pradesh, Karnataka and Tamil Nadu. Kerala is marked insufficient data because the verified inventory contains no settlement-mound record. River-only comparison remains unavailable because river distance has not been ingested.
+
+## 2026-11-10 — Headline Findings Atlas generated
+
+- Generated result-led cross-state findings, four state profiles, coarse hotspot tables and Level-1 model-only candidate zones.
+- No convergence randomization p-value was computed because no zone currently has two independent evidence layers. Historical, paleo-route and unlocated-place layers are absent; remote-sensing features already used by the model are not double-counted as independent evidence.
+- Statewide pressure growth near known sites versus matched random controls and validated quarry growth remain explicitly unavailable.
+
