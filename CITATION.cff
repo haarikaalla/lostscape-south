@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, cite the archived release described in docs/RELEASE_PLAN.md."
+title: "LostScape-South"
+type: software
+version: 0.1.0-dev
+date-released: 2026-11-10
+license: MIT
+repository-code: "https://github.com/haarikaalla/lostscape-south"
+

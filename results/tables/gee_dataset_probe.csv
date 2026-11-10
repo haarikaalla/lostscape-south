@@ -1,0 +1,8 @@
+key,dataset_id,availability_probe_count,access_date
+sentinel2,COPERNICUS/S2_SR_HARMONIZED,1,2026-11-10
+sentinel1,COPERNICUS/S1_GRD,1,2026-11-10
+dem,USGS/SRTMGL1_003,1,2026-11-10
+rainfall,UCSB-CHG/CHIRPS/DAILY,1,2026-11-10
+worldcover,ESA/WorldCover/v200,1,2026-11-10
+dynamic_world,GOOGLE/DYNAMICWORLD/V1,1,2026-11-10
+landsat,LANDSAT/LC08/C02/T1_L2,1,2026-11-10
