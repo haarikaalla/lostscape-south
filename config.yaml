@@ -17,11 +17,11 @@ inventory:
 github:
   repository_url: https://github.com/haarikaalla/lostscape-south
 gee:
-  project: null
+  project: lostscape-south-123456
   datasets:
     sentinel2: COPERNICUS/S2_SR_HARMONIZED
     sentinel1: COPERNICUS/S1_GRD
-    dem: COPERNICUS/DEM/GLO30
+    dem: USGS/SRTMGL1_003
     rainfall: UCSB-CHG/CHIRPS/DAILY
     worldcover: ESA/WorldCover/v200
     dynamic_world: GOOGLE/DYNAMICWORLD/V1

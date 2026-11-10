@@ -31,3 +31,15 @@
 **Decision:** After the failed initial gate, the user authorized adding official/open inventories and proceeding while demonstrating value in all four states. Use two explicitly separated targets: (1) megalithic burial susceptibility where coordinate-supported labels permit quantitative modeling, and (2) broader archaeological-site potential across all four states. Treat sparse-state megalithic results as transfer or case-study evidence, not equally powered primary validation.
 **Reason:** This preserves the primary scientific target without fabricating labels or silently merging unlike classes. State-specific sample sizes and uncertainty will remain visible in every result.
 
+## D006 — Earth Engine project and stable DEM
+
+**Date:** 2026-11-10
+**Decision:** Use Earth Engine project `lostscape-south-123456`. Replace deprecated `COPERNICUS/DEM/GLO30` with `USGS/SRTMGL1_003` for the reproducible terrain baseline.
+**Reason:** The Earth Engine API emitted a deprecation warning for the configured Copernicus collection during the live availability probe. SRTM is an allowed project source and avoids building new work on a deprecated asset.
+
+## D007 — Coarse interactive QA scale
+
+**Date:** 2026-11-10
+**Decision:** Run the archive-wide state/season clear-observation diagnostic at 20 km, after the initial 5 km synchronous reduction exceeded three minutes. Preserve 10–30 m processing for tiled, resumable batch exports.
+**Reason:** The QA statistic is a coverage diagnostic rather than a modeling feature. Coarsening it prevents an expensive interactive computation while retaining state and seasonal comparisons.
+
