@@ -5,7 +5,10 @@
 - Best coarse state-transfer PR-AUC (histogram gradient boosting): 0.0015 across 5 seeds.
 - Primary-label caveat: results measure recovery of documented cells, not undiscovered sites.
 - Blind settlement test: median target percentile 0.382; mean PR-AUC 0.5204.
-- Pressure conclusion: only a provisional current built/cropland/bare-ground proxy exists; damaging pressure type is not established.
+- Construction-pressure ranking backtest: Spearman -0.033; top-decile recall 0.526.
+- Documentation-propensity transfer ROC-AUC: 0.570.
+- Candidate portfolio: 10 generalized Level-1 zones; mean lower-90% score 0.0051.
+- Pressure conclusion: quarry and actual damage outcomes remain unvalidated.
 - Convergence: Level 1 model-only zones; no independent historical/route layer is available.
 
 ## Inventory counts

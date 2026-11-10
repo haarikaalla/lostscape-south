@@ -101,3 +101,17 @@
 - Ranked 50 generalized survey blind-spot cells per state using model probability divided by one plus open-inventory record count. This is a documentation-density proxy, not measured survey effort; road/accessibility effort remains unavailable.
 - Inventory contains only 18 ancient-tank records, so no separate optional water-system model was run. No reliable burial cluster-size labels exist.
 
+## 2026-11-10 — Forecast and blind-spot methodology upgrade
+
+- Replaced the single linear forecast with state-holdout comparison of persistence, linear trend, robust Theil–Sen trend and nonlinear temporal-context boosting.
+- Persistence achieved the best weighted MAE (0.01213), demonstrating no skill for exact change magnitude beyond “no change.” Robust Theil–Sen achieved the best weighted top-decile recall (0.36442) and weighted Spearman correlation (0.22962), so it is retained only as a weak conservation-screening rank for 2025–2030. No 2035 result is released.
+- Replaced raw documentation counts with a five-seed, leave-one-state-out documentation-propensity model. Weighted ROC-AUC was 0.57657; the correction is weak, although top-50 candidate ranks were stable across seeds (mean pairwise Jaccard 0.905–0.976).
+- Generated separate public-safe portfolios for Level-1 field-verification candidates and known-site conservation screening. No zone was promoted to discovery, city, empire or Evidence Level 2.
+
+## 2026-11-10 — Retrospective pseudo-discovery experiment
+
+- Selected up to three dense, multi-class DBSCAN clusters per state using a predeclared 10-km clustering radius and minimum four records/two classes; twelve clusters were available.
+- Excluded each complete cluster and a 75-km training buffer, then ranked a 30-km test area across five seeds. Compared with 100 random rankings per cluster and distance to remaining known sites.
+- Full-model mean cluster PR-AUC was 0.31421 versus 0.22783 for random (paired one-sided Wilcoxon p=0.02124). Top-10%-area recall was 0.22313 versus 0.10272, but p=0.07568.
+- The test supports limited retrospective recovery of dense known clusters. It does not validate isolated-site discovery and does not convert any current candidate into an archaeological discovery.
+

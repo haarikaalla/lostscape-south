@@ -1,4 +1,5 @@
 component,status,meaning
-construction pressure,forecasted,Dynamic World built-probability trend within 2 km; not probability of archaeological damage
+construction pressure,weak ranking forecast,Dynamic World built-probability change within 2 km; model selected by state-holdout top-decile recall
+2035 construction pressure,not released,ten-year recursive extrapolation was not supported by the five-year backtest
 quarry pressure,unavailable,quarry classifier has not passed required visual validation
 damage outcome,unavailable,no longitudinal field-verified damage labels

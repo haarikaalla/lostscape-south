@@ -14,9 +14,11 @@ if [[ -f data/private/features_5km_karnataka.csv && -f data/private/master_inven
   "$PYTHON_BIN" -m src.risk.phase6
   "$PYTHON_BIN" -m src.history.hampi_case
   "$PYTHON_BIN" -m src.history.lost_settlement_tests
+  "$PYTHON_BIN" -m src.eval.pseudo_discovery
   if compgen -G 'data/private/landsat_history_*.csv' >/dev/null; then "$PYTHON_BIN" -m src.history.analyse_landsat_pilots; fi
   "$PYTHON_BIN" -m src.survey.blind_spots
   if [[ -f data/private/site_damage_history_2016_2025.csv ]]; then "$PYTHON_BIN" -m src.risk.site_damage_forecast; fi
+  if [[ -f results/tables/site_damage_forecast_cells.csv ]]; then "$PYTHON_BIN" -m src.eval.candidate_outcomes; fi
   "$PYTHON_BIN" -m src.eval.headline_atlas
 else
   echo "Private feature inputs absent: reproducibly skipping model stages. See docs/DATA_SOURCES.md."

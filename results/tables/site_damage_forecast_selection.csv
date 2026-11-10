@@ -1,0 +1,2 @@
+selection_objective,selected_model,selection_metric,selected_value,best_mae_model,best_mae,interpretation
+rank future pressure growth,robust_theil_sen,weighted state-holdout top-decile recall,0.36442204059637145,persistence,0.01213416712866867,ranking screen only; exact magnitude forecast has no demonstrated skill over persistence

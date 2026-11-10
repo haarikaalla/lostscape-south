@@ -1,0 +1,15 @@
+module,algorithm,status,validation
+archaeological_baseline,regularized logistic regression,implemented,leave-one-state-out five seeds
+archaeological_baseline,random forest,implemented,leave-one-state-out five seeds
+archaeological_baseline,histogram gradient boosting,implemented,leave-one-state-out five seeds
+incomplete_labels,positive-unlabeled random-forest bagging,implemented,spatial calibration blocks and leave-one-state-out
+uncertainty,ensemble standard deviation,implemented,five fixed seeds
+uncertainty,split conformal sets,implemented,225-km block calibration; nominal target failed
+pressure_forecast,persistence,implemented,state-holdout backtest
+pressure_forecast,ordinary linear trend,implemented,state-holdout backtest
+pressure_forecast,robust Theil-Sen trend,implemented,state-holdout backtest; selected for ranking
+pressure_forecast,histogram gradient boosting regression,implemented,nested state fit/calibration/test
+survey_bias,random-forest documentation propensity,implemented,five seeds and leave-one-state-out
+discovery_readiness,withheld-cluster histogram gradient boosting,implemented,12 clusters with 75-km exclusion buffers
+fine_patches,CNN,not implemented,requires 10-m patch exports
+quarry_forecast,validated change classifier,not implemented,requires visual validation labels

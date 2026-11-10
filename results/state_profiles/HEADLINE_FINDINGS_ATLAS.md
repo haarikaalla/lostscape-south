@@ -10,8 +10,9 @@ This atlas is computed from files in `results/`. It reports negative and unavail
 - Hampi showed modest recovery under a 75-km withheld buffer.
 - Landsat pilot spectral trends do not identify individual heritage loss.
 - No zone currently has two genuinely independent evidence layers; all showcased convergence zones are Evidence Level 1.
-- The construction-pressure forecast backtest is weak overall and negative in Andhra Pradesh; it is not a damage probability.
-- Survey blind spots use documentation density, not measured field-survey effort.
+- Persistence best predicts exact pressure magnitude; robust Theil–Sen is retained only for weak ranking skill (top-decile recall 0.364).
+- Documentation-propensity transfer is weak (weighted ROC-AUC 0.577), though top-50 lists are stable across seeds.
+- Forty generalized candidate zones form a field-review portfolio; none is a discovery.
 
 ## State profiles
 
@@ -22,4 +23,4 @@ This atlas is computed from files in `results/`. It reports negative and unavail
 
 ## Unsupported headline requests
 
-See `results/tables/headline_unavailable_tests.csv` and `results/tables/heritage_loss_availability.csv`.
+See `results/tables/headline_unavailable_tests.csv`, `results/tables/heritage_loss_availability.csv`, and `results/tables/candidate_claims_register.csv`.

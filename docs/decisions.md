@@ -103,6 +103,7 @@
 ## D017 — Forecast scope and release
 
 **Date:** 2026-11-10
+**Status:** Superseded by D019 after multi-model benchmarking.
 **Decision:** Release only generalized construction-pressure trends and label the forecast weak; do not call the score a probability of site damage.
 **Evidence:** The all-state 2016–2020 to 2020–2025 backtest produced Spearman correlation 0.2140, with a negative result in Andhra Pradesh and near-zero result in Tamil Nadu.
 **Reason:** Built-probability trends omit actual damage outcomes, planned development, protection, permits and quarry validation. Weak backtesting does not support a stronger claim.
@@ -112,4 +113,25 @@
 **Date:** 2026-11-10
 **Decision:** Do not train a separate ancient-water-system model from 18 tank records, and do not model burial cluster size.
 **Reason:** The tank sample is too small for the required spatial evaluation and the inventory has no reliable cluster-size label.
+
+## D019 — Separate magnitude prediction from priority ranking
+
+**Date:** 2026-11-10
+**Decision:** Treat persistence as the winning magnitude baseline and robust Theil–Sen as a weak ranking screen; release no 2035 forecast.
+**Evidence:** Persistence weighted MAE is 0.01213. Robust Theil–Sen weighted top-decile recall is 0.36442 and weighted Spearman is 0.22962, but its weighted MAE is 0.02402.
+**Reason:** Conservation triage is a ranking task, but low magnitude skill prohibits interpreting the rank as a calibrated damage amount or probability.
+
+## D020 — Propensity-based blind spots remain provisional
+
+**Date:** 2026-11-10
+**Decision:** Use out-of-state documentation propensity and lower-bound archaeological score for blind-spot ranking, while retaining an explicit weak-evidence label.
+**Evidence:** Weighted effort-model ROC-AUC is 0.57657. Top-50 rankings are seed-stable, but discrimination is only slightly above random.
+**Reason:** Modeled open-source documentation is more defensible than raw record count alone, but it is not observed survey coverage and lacks roads/settlement accessibility.
+
+## D021 — Pseudo-discovery is a readiness test, not a discovery claim
+
+**Date:** 2026-11-10
+**Decision:** Report retrospective recovery of withheld dense clusters as discovery-readiness evidence only. Do not describe any unverified candidate as a site, city or empire.
+**Evidence:** Full-model cluster PR-AUC exceeded random with p=0.02124, while the top-10%-area recall comparison did not reach 0.05 (p=0.07568).
+**Reason:** The selected clusters are known, dense and multi-class. Prospective claims require independent evidence, expert review and permitted field verification.
 

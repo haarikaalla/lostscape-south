@@ -1,0 +1,5 @@
+interpretation,supported,detail
+retrospective pseudo-discovery only,True,whole known clusters were excluded with a 75-km buffer before ranking a 30-km test area
+prospective archaeological discovery,False,no candidate has independent expert or field verification
+lost city or empire,False,"cluster recovery cannot establish identity, chronology, urban scale or political affiliation"
+small or isolated site generalization,False,stress test preselects up to three dense multi-class clusters per state

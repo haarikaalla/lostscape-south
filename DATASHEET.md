@@ -28,3 +28,5 @@ Only coarse cells and derived non-sensitive products may be public. Precise loca
 
 The coarse feature pilot contains 21,732 cells and 140 observed-positive cells. State positive-cell counts are 6 Andhra Pradesh, 6 Karnataka, 8 Kerala, and 120 Tamil Nadu. These imbalances must accompany all transfer claims.
 
+The verified inventory contains 18 ancient-tank records, which is insufficient for the requested separate water-system model. It has no reliable burial cluster-size field. Annual 2016–2025 built-probability histories cover 1,465 documented sites for construction-pressure benchmarking; these are exposure proxies, not damage labels.
+

@@ -21,6 +21,8 @@ def main() -> None:
     files=subprocess.check_output(["git","ls-files"],cwd=ROOT,text=True).splitlines(); problems=[]
     for rel in files:
         path=ROOT/rel
+        if not path.exists():
+            continue
         if rel.startswith("data/private/") and not rel.endswith(".gitkeep"): problems.append(f"private path tracked: {rel}")
         if rel.startswith("data/raw/") and not rel.endswith(ALLOWED_RAW_SUFFIXES): problems.append(f"raw download tracked: {rel}")
         if path.stat().st_size>10*1024*1024: problems.append(f"file exceeds 10 MiB: {rel}")

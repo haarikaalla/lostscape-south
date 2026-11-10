@@ -1,0 +1,3 @@
+comparison,clusters,mean_full,mean_random,mean_difference,wilcoxon_statistic,one_sided_p
+full_hgb > random cluster mean: pr_auc,12,0.3142109957059976,0.2278276278656873,0.0863833678403103,65.0,0.021240234375
+full_hgb > random cluster mean: recall_top_10pct,12,0.22313358735998698,0.10271937980971042,0.12041420755027654,58.0,0.07568359375
