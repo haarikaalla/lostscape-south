@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import re
 import subprocess
+import csv
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -27,7 +28,14 @@ def main() -> None:
         text=path.read_text(errors="ignore")
         for name,pattern in SECRET_PATTERNS.items():
             if pattern.search(text): problems.append(f"{name} pattern: {rel}")
-        if rel.startswith(("data/processed/","results/")) and COORDINATE_PAIR.search(text): problems.append(f"possible precise coordinate pair: {rel}")
+        if rel.startswith(("data/processed/","results/")):
+            if path.suffix.lower()==".csv":
+                with path.open(newline="",errors="ignore") as handle:
+                    header=next(csv.reader(handle),[])
+                sensitive={"lat","latitude","lon","lng","longitude","geometry","wkt"}
+                if sensitive.intersection(c.strip().lower() for c in header): problems.append(f"coordinate column in public CSV: {rel}")
+            elif path.suffix.lower() in {".json",".geojson",".txt"} and COORDINATE_PAIR.search(text):
+                problems.append(f"possible precise coordinate pair: {rel}")
     if problems:
         print("PRIVACY SCAN FAILED")
         print("\n".join(f"- {p}" for p in problems))
