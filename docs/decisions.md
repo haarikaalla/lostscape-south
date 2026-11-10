@@ -135,3 +135,10 @@
 **Evidence:** Full-model cluster PR-AUC exceeded random with p=0.02124, while the top-10%-area recall comparison did not reach 0.05 (p=0.07568).
 **Reason:** The selected clusters are known, dense and multi-class. Prospective claims require independent evidence, expert review and permitted field verification.
 
+## D022 — Separate historical context from model inference
+
+**Date:** 2026-11-10
+**Decision:** Mention documented historical landscapes only with authoritative sources and never transfer their cultural identity to model-ranked cells.
+**Evidence:** `results/tables/historical_context_scope.csv` records the authority, URL and permitted role of each reference case.
+**Reason:** Remote-sensing similarity cannot establish chronology, function or affiliation. Source-free “lost empire” language would be scientifically invalid and conflict with the project's discovery-claim policy.
+

@@ -115,3 +115,10 @@
 - Full-model mean cluster PR-AUC was 0.31421 versus 0.22783 for random (paired one-sided Wilcoxon p=0.02124). Top-10%-area recall was 0.22313 versus 0.10272, but p=0.07568.
 - The test supports limited retrospective recovery of dense known clusters. It does not validate isolated-site discovery and does not convert any current candidate into an archaeological discovery.
 
+## 2026-11-10 — Historical-context and research-readiness audit
+
+- Added authoritative, source-backed context for Hampi/Vijayanagara, Amaravati, the Great Living Chola Temples and the Muziris heritage landscape.
+- Kept historical identity strictly separate from model inference: only Hampi is used as a known-city withholding test; the other entries are contextual and cannot label candidates.
+- Added a research-readiness audit distinguishing completed spatial/PU/backtesting evidence from required fine-patch, expert-review, prospective-field, quarry, protection, geology and historical-convergence validation.
+- Rejected source-free “lost empire” claims. No candidate has archaeological identity, chronology or cultural affiliation without independent verification.
+

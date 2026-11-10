@@ -21,6 +21,8 @@ The public-safe coarse pilot is complete across all four states. It contains 21,
 
 LostScape-South has not discovered a lost city, empire, burial, tank, or settlement. Coarse remote-sensing susceptibility cannot establish archaeological identity, date, extent, cultural affiliation, or legal status. A real discovery claim requires independent imagery or historical convergence, expert assessment, permitted field verification, and authority review. The machine-readable claim register is `results/tables/candidate_claims_register.csv`.
 
+Documented historical landscapes—including Vijayanagara/Hampi, the Chola monumental centres, Amaravati, and the Muziris heritage region—are included only as authoritative context or known-site validation cases. The model does not infer that any candidate belongs to those polities. See `docs/HISTORICAL_CONTEXT.md` and `results/tables/historical_context_scope.csv`.
+
 ## Training and evaluation algorithms
 
 | Component | Algorithms | Purpose |
@@ -78,6 +80,8 @@ Set `gee.project` in `config.yaml` to a registered noncommercial Earth Engine pr
 - Forecast and survey-bias benchmarks: `results/tables/site_damage_forecast_model_comparison.csv`, `results/tables/survey_effort_model_cv.csv`
 - Retrospective discovery-readiness tests: `results/tables/pseudo_discovery_summary.csv`, `results/tables/pseudo_discovery_significance.csv`
 - Full traceability and unsupported claims: `results/RESULTS_SUMMARY.md`
+- Historical context separated from model inference: `docs/HISTORICAL_CONTEXT.md`
+- Submission-strength evidence audit and remaining validation gaps: `docs/RESEARCH_READINESS_AUDIT.md`
 
 ## Data and ethics
 

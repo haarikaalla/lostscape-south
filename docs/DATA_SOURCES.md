@@ -14,6 +14,10 @@ Access date for Phase 1 sources: **2026-11-10**.
 | USGS Landsat Collection 2 | `https://www.usgs.gov/landsat-missions/landsat-collections` | Level-2 surface reflectance from 1982 onward; accessed 2026-11-10 | USGS no-cost open data | Approved historical-change source for pilot areas |
 | USGS Declassified Satellite Imagery 1 (CORONA/ARGON/LANYARD) | `https://doi.org/10.5066/F78P5XZM` | 1960–1972; availability must be checked per frame in EarthExplorer | Public domain; existing digital files free, on-demand scans may cost money | Approved availability check; no frames downloaded yet |
 | Stanford South Asian Studies map guide | `https://guides.library.stanford.edu/c.php?g=1325856&p=11218656` | Describes 1980s–1990s India 1:50,000 map scans; accessed 2026-11-10 | Item-specific rights must be checked before download/release | Historical-map discovery only; no map downloaded |
+| UNESCO World Heritage Centre — Hampi | `https://whc.unesco.org/en/list/241/` | Authoritative property description; accessed 2026-11-10 | UNESCO web terms; attribution retained | Historical context and interpretation of the known-city holdout only |
+| UNESCO World Heritage Centre — Great Living Chola Temples | `https://whc.unesco.org/en/list/250/` | Authoritative property description; accessed 2026-11-10 | UNESCO web terms; attribution retained | Historical context only; never used to assign candidate identity |
+| Archaeological Survey of India — Amaravati Circle | `https://asi.nic.in/pages/Amaravati-Circle` | Official ASI institutional/site context; accessed 2026-11-10 | Government information; attribution retained | Historical context only |
+| Government of Kerala — Muziris Heritage Project | `https://www.keralatourism.org/muziris/muziris-project` | Official heritage-project description; accessed 2026-11-10 | Government information; attribution retained | Historical context only; never used to localize or classify candidates |
 
 Raw API responses and exact queries are cached locally. Precise point data are placed only in gitignored `data/private/`. Public releases use aggregated 10 km cells.
 
