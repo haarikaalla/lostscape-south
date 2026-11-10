@@ -88,3 +88,9 @@
 **Decision:** Rank coarse conservation risk with a transparent proxy combining Dynamic World built probability, WorldCover cropland and bare-ground indicators. Label every output provisional.
 **Reason:** The required multi-year quarry-growth classifier and 100-cell visual validation have not been completed. Calling the proxy a quarry layer or heritage-loss rate would overstate the evidence.
 
+## D015 — Time-Machine pilots and source scope
+
+**Date:** 2026-11-10
+**Decision:** Pilot southern Chennai, Tirupati–Srikalahasti and the Thrissur belt. Use Landsat Collection 2 immediately; use CORONA only after authenticated frame inspection and georeferencing; do not download historical maps until item-specific reuse rights are verified.
+**Reason:** These areas coincide with the strongest coarse provisional risk concentrations near documented megalithic records and represent contrasting development, dry-interior and humid-canopy conditions.
+

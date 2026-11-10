@@ -11,6 +11,9 @@ Access date for Phase 1 sources: **2026-11-10**.
 | ASI centrally protected monuments list | `https://asi.nic.in/pdf/CPM_List.pdf` | Published 2025; accessed 2026-11-10 | Government information; source attribution retained | Official names, localities, districts and protection status validation |
 | Tamil Nadu Department of Archaeology | Excavation and district-wise monument pages at `tnarch.gov.in` | Page contents available 2026-11-10 | Government information; source attribution retained | Cross-check of excavation type/year and state-protected sites |
 | Kerala Department of Archaeology | 2023 centrally protected monuments PDF | 2023; accessed 2026-11-10 | Government information; source attribution retained | Cross-check of prehistoric umbrella stones and burial caves |
+| USGS Landsat Collection 2 | `https://www.usgs.gov/landsat-missions/landsat-collections` | Level-2 surface reflectance from 1982 onward; accessed 2026-11-10 | USGS no-cost open data | Approved historical-change source for pilot areas |
+| USGS Declassified Satellite Imagery 1 (CORONA/ARGON/LANYARD) | `https://doi.org/10.5066/F78P5XZM` | 1960–1972; availability must be checked per frame in EarthExplorer | Public domain; existing digital files free, on-demand scans may cost money | Approved availability check; no frames downloaded yet |
+| Stanford South Asian Studies map guide | `https://guides.library.stanford.edu/c.php?g=1325856&p=11218656` | Describes 1980s–1990s India 1:50,000 map scans; accessed 2026-11-10 | Item-specific rights must be checked before download/release | Historical-map discovery only; no map downloaded |
 
 Raw API responses and exact queries are cached locally. Precise point data are placed only in gitignored `data/private/`. Public releases use aggregated 10 km cells.
 

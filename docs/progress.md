@@ -74,3 +74,10 @@
 - Created a blinded 60-cell review sheet (40 high-ranked, 20 controls) and a non-simulating analysis script. Fine Sentinel-2/NDVI/hillshade chips remain pending fine-resolution exports, so expert review must not start yet.
 - Protected-site gap analysis remains unavailable because no open protected-area polygon layer has been approved and ingested. Point protection status is not treated as an area boundary.
 
+## 2026-11-10 — Phase 7 in progress: Hampi complete, historical exports complete
+
+- Checked authoritative availability: USGS Landsat Collection 2 provides open Level-2 surface reflectance from 1982 onward. CORONA Declass-1 is public domain (1960–1972), but frames are not georeferenced, existing scans can be hundreds of megabytes, and EarthExplorer login is required.
+- Completed a broader-inventory Hampi/Vijayanagara holdout: train cells within 75 km were excluded and 208 cells within 40 km formed the test area, containing 30 known inventory cells. Across five seeds, mean PR-AUC was 0.28390 and mean recall in the top 10% of area was 0.21333. This is modest recovery of documented cells, not discovery.
+- Submitted and completed private Landsat five-year dry-season pressure-index exports for the approved Chennai-south, Tirupati–Srikalahasti and Thrissur pilots. The three CSVs are awaiting local retrieval from the private Drive folder before change rates can be computed.
+- CORONA georeferencing and historical-map comparison remain pending EarthExplorer authentication, frame availability/quality review, and item-specific map rights checks.
+
