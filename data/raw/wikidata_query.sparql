@@ -1,0 +1,9 @@
+SELECT DISTINCT ?item ?itemLabel ?coord ?instanceLabel ?heritageLabel ?date WHERE {
+  VALUES ?state { wd:Q1185 wd:Q1159 wd:Q1445 wd:Q1186 }
+  ?item wdt:P625 ?coord; wdt:P131* ?state.
+  OPTIONAL { ?item wdt:P31 ?instance. }
+  OPTIONAL { ?item wdt:P1435 ?heritage. }
+  OPTIONAL { ?item wdt:P571 ?date. }
+  FILTER(EXISTS { ?item wdt:P1435 ?x } || EXISTS { ?item wdt:P31/wdt:P279* wd:Q839954 })
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}

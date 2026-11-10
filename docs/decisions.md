@@ -18,3 +18,10 @@
 **Decision:** OSM and Wikidata records are evidence of documentation, not ground-truth absence/presence quality. Preserve source tags, map deterministically to broad classes, and report missing discovery years rather than infer them.  
 **Reason:** Source coverage and tagging are heterogeneous and survey-biased.
 
+## D004 — Stop at the label gate
+
+**Date:** 2026-11-10
+**Decision:** Do not begin Earth Engine feature export or model training with the current primary labels.
+**Evidence:** The deduplicated open-source inventory contains 46 megalithic-burial records: Karnataka 1, Andhra Pradesh 1, Tamil Nadu 39, Kerala 5. The configured gate requires at least 100 total and 30 per provisional block.
+**Reason:** Continuing would produce unstable spatial validation, misleading transfer claims, and poorly constrained PU estimates. Options requiring user choice are: merge defensible burial/archaeological classes; add approved public monument/inventory sources; widen the region; or treat Tamil Nadu as the primary study and Kerala as a qualitative case study.
+

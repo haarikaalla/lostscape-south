@@ -15,7 +15,7 @@ inventory:
   boundary_source: geoBoundaries
   boundary_release: gbOpen
 github:
-  repository_url: null
+  repository_url: https://github.com/haarikaalla/lostscape-south
 gee:
   project: null
   datasets:

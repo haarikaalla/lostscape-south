@@ -1,0 +1,38 @@
+state,source,class,site_count,discovery_year_known,discovery_year_coverage_pct
+Andhra Pradesh,OpenStreetMap,archaeological_site_other,16,0,0.0
+Andhra Pradesh,OpenStreetMap,burial_other,2,0,0.0
+Andhra Pradesh,OpenStreetMap,fort_or_town_ruin,46,0,0.0
+Andhra Pradesh,Wikidata,ancient_tank,3,1,33.3
+Andhra Pradesh,Wikidata,archaeological_site_other,74,1,1.4
+Andhra Pradesh,Wikidata,burial_other,1,0,0.0
+Andhra Pradesh,Wikidata,fort_or_town_ruin,14,0,0.0
+Andhra Pradesh,Wikidata,megalithic_burial,1,0,0.0
+Andhra Pradesh,Wikidata,settlement_mound,13,0,0.0
+Karnataka,OpenStreetMap,ancient_tank,1,0,0.0
+Karnataka,OpenStreetMap,archaeological_site_other,41,0,0.0
+Karnataka,OpenStreetMap,burial_other,22,0,0.0
+Karnataka,OpenStreetMap,fort_or_town_ruin,159,0,0.0
+Karnataka,OpenStreetMap,megalithic_burial,1,0,0.0
+Karnataka,OpenStreetMap,settlement_mound,1,0,0.0
+Karnataka,Wikidata,ancient_tank,4,1,25.0
+Karnataka,Wikidata,archaeological_site_other,177,13,7.3
+Karnataka,Wikidata,burial_other,6,0,0.0
+Karnataka,Wikidata,fort_or_town_ruin,12,4,33.3
+Kerala,OpenStreetMap,archaeological_site_other,15,0,0.0
+Kerala,OpenStreetMap,burial_other,24,0,0.0
+Kerala,OpenStreetMap,fort_or_town_ruin,53,0,0.0
+Kerala,OpenStreetMap,megalithic_burial,2,0,0.0
+Kerala,Wikidata,ancient_tank,1,0,0.0
+Kerala,Wikidata,archaeological_site_other,56,16,28.6
+Kerala,Wikidata,fort_or_town_ruin,1,0,0.0
+Kerala,Wikidata,megalithic_burial,3,0,0.0
+Tamil Nadu,OpenStreetMap,archaeological_site_other,28,0,0.0
+Tamil Nadu,OpenStreetMap,burial_other,5,0,0.0
+Tamil Nadu,OpenStreetMap,fort_or_town_ruin,46,0,0.0
+Tamil Nadu,OpenStreetMap,megalithic_burial,3,0,0.0
+Tamil Nadu,Wikidata,ancient_tank,2,0,0.0
+Tamil Nadu,Wikidata,archaeological_site_other,247,9,3.6
+Tamil Nadu,Wikidata,burial_other,6,0,0.0
+Tamil Nadu,Wikidata,fort_or_town_ruin,16,0,0.0
+Tamil Nadu,Wikidata,megalithic_burial,36,0,0.0
+Tamil Nadu,Wikidata,settlement_mound,2,0,0.0

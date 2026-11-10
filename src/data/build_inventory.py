@@ -5,6 +5,7 @@ import hashlib
 import json
 import math
 import time
+import unicodedata
 from pathlib import Path
 
 import geopandas as gpd
@@ -39,67 +40,103 @@ def boundaries() -> gpd.GeoDataFrame:
         (ROOT / "data/raw/geoboundaries_metadata.json").write_text(json.dumps(meta, indent=2))
     gdf = gpd.read_file(cache).to_crs(4326)
     name_col = next(c for c in ["shapeName", "shapeName1", "NAME_1"] if c in gdf.columns)
-    gdf = gdf.rename(columns={name_col: "state"})
+    gdf = gdf.rename(columns={name_col: "source_state"})
+    def normalize(value: str) -> str:
+        return "".join(c for c in unicodedata.normalize("NFKD", value) if not unicodedata.combining(c))
+    gdf["state"] = gdf["source_state"].map(normalize)
     wanted = load_config()["region"]["states"]
     return gdf[gdf.state.isin(wanted)][["state", "geometry"]].copy()
 
 
-OVERPASS_QUERY = """[out:json][timeout:600];
-area["ISO3166-1"="IN"][admin_level=2]->.india;
+def wikidata_entity_labels(qids: set[str]) -> dict[str, str]:
+    cache_path=ROOT/"data/raw/wikidata_entity_labels.json"
+    labels=json.loads(cache_path.read_text()) if cache_path.exists() else {}
+    missing=sorted(qids-set(labels))
+    for pos in range(0,len(missing),50):
+        batch=missing[pos:pos+50]
+        raw=fetch_json("https://www.wikidata.org/w/api.php",params={"action":"wbgetentities","ids":"|".join(batch),"props":"labels","languages":"en","format":"json"},timeout=120)
+        for qid,entity in raw.get("entities",{}).items():
+            labels[qid]=entity.get("labels",{}).get("en",{}).get("value",qid)
+        cache_path.write_text(json.dumps(labels,indent=2,sort_keys=True))
+    return labels
+
+
+OVERPASS_QUERY_TEMPLATE = """[out:json][timeout:300];
+area["name"="{state}"]["boundary"="administrative"]["admin_level"="4"]->.region;
 (
-  nwr(area.india)["historic"="archaeological_site"];
-  nwr(area.india)["archaeological_site"];
-  nwr(area.india)["megalith"];
-  nwr(area.india)["historic"="tomb"];
-  nwr(area.india)["tomb"];
-  nwr(area.india)["historic"="ruins"];
-  nwr(area.india)["ruins"];
-  nwr(area.india)["historic"="fort"];
-  nwr(area.india)["fortification_type"];
+  nwr(area.region)["historic"="archaeological_site"];
+  nwr(area.region)["archaeological_site"];
+  nwr(area.region)["megalith"];
+  nwr(area.region)["historic"="tomb"];
+  nwr(area.region)["tomb"];
+  nwr(area.region)["historic"="ruins"];
+  nwr(area.region)["ruins"];
+  nwr(area.region)["historic"="fort"];
+  nwr(area.region)["fortification_type"];
 );
 out center tags;"""
 
 
 def osm_records() -> list[dict]:
-    raw_path = ROOT / "data/raw/osm_overpass_inventory.json"
-    (ROOT / "data/raw/osm_overpass_query.txt").write_text(OVERPASS_QUERY)
-    if raw_path.exists():
-        raw = json.loads(raw_path.read_text())
-    else:
-        raw = fetch_json(load_config()["inventory"]["overpass_endpoint"], data={"data": OVERPASS_QUERY}, timeout=700)
-        raw_path.write_text(json.dumps(raw))
     out = []
-    for e in raw.get("elements", []):
-        lat = e.get("lat", e.get("center", {}).get("lat")); lon = e.get("lon", e.get("center", {}).get("lon"))
-        if lat is None or lon is None: continue
-        tags = e.get("tags", {})
-        out.append({"source":"OpenStreetMap", "source_id":f'{e["type"]}/{e["id"]}', "name":tags.get("name"), "lat":lat, "lon":lon, "tags":json.dumps(tags, sort_keys=True), "discovery_year":None, "protection_status":tags.get("protection_title") or tags.get("heritage")})
+    endpoints = [load_config()["inventory"]["overpass_endpoint"], "https://overpass.kumi.systems/api/interpreter"]
+    for state in load_config()["region"]["states"]:
+        query = OVERPASS_QUERY_TEMPLATE.format(state=state)
+        stem = state.lower().replace(" ", "_")
+        raw_path = ROOT / f"data/raw/osm_overpass_{stem}.json"
+        (ROOT / f"data/raw/osm_overpass_{stem}.txt").write_text(query)
+        if raw_path.exists(): raw = json.loads(raw_path.read_text())
+        else:
+            error = None
+            for endpoint in endpoints:
+                try:
+                    raw = fetch_json(endpoint, data={"data": query}, timeout=360)
+                    raw_path.write_text(json.dumps(raw)); break
+                except requests.RequestException as exc:
+                    error = exc; time.sleep(2)
+            else: raise RuntimeError(f"All Overpass endpoints failed for {state}: {error}")
+        for e in raw.get("elements", []):
+            lat = e.get("lat", e.get("center", {}).get("lat")); lon = e.get("lon", e.get("center", {}).get("lon"))
+            if lat is None or lon is None: continue
+            tags = e.get("tags", {})
+            out.append({"source":"OpenStreetMap", "source_id":f'{e["type"]}/{e["id"]}', "name":tags.get("name"), "lat":lat, "lon":lon, "tags":json.dumps(tags, sort_keys=True), "discovery_year":None, "protection_status":tags.get("protection_title") or tags.get("heritage")})
     return out
 
 
-WIKIDATA_QUERY = """SELECT DISTINCT ?item ?itemLabel ?coord ?instanceLabel ?heritageLabel ?date WHERE {
-  VALUES ?state { wd:Q1185 wd:Q1159 wd:Q1445 wd:Q1186 }
+WIKIDATA_QUERY_TEMPLATE = """SELECT DISTINCT ?item ?itemLabel ?coord ?instance ?heritage ?date WHERE {
   ?item wdt:P625 ?coord; wdt:P131* ?state.
+  VALUES ?state { wd:STATE_QID }
+  { ?item wdt:P1435 ?heritage. } UNION { ?item wdt:P31/wdt:P279* wd:Q839954. }
   OPTIONAL { ?item wdt:P31 ?instance. }
-  OPTIONAL { ?item wdt:P1435 ?heritage. }
   OPTIONAL { ?item wdt:P571 ?date. }
-  FILTER(EXISTS { ?item wdt:P1435 ?x } || EXISTS { ?item wdt:P31/wdt:P279* wd:Q839954 })
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+  OPTIONAL { ?item rdfs:label ?itemLabel. FILTER(LANG(?itemLabel)="en") }
 }"""
 
 
 def wikidata_records() -> list[dict]:
-    raw_path = ROOT / "data/raw/wikidata_inventory.json"
-    (ROOT / "data/raw/wikidata_query.sparql").write_text(WIKIDATA_QUERY)
-    if raw_path.exists(): raw = json.loads(raw_path.read_text())
-    else:
-        raw = fetch_json(load_config()["inventory"]["wikidata_endpoint"], params={"query":WIKIDATA_QUERY,"format":"json"}, timeout=300)
-        raw_path.write_text(json.dumps(raw))
-    out=[]
-    for b in raw["results"]["bindings"]:
-        xy=b["coord"]["value"].removeprefix("Point(").removesuffix(")").split()
-        date=b.get("date",{}).get("value"); year=int(date[:4]) if date and date[:4].isdigit() else None
-        out.append({"source":"Wikidata", "source_id":b["item"]["value"].rsplit("/",1)[-1], "name":b.get("itemLabel",{}).get("value"), "lon":float(xy[0]), "lat":float(xy[1]), "tags":json.dumps({"instance":b.get("instanceLabel",{}).get("value"),"heritage":b.get("heritageLabel",{}).get("value")},sort_keys=True), "discovery_year":year, "protection_status":b.get("heritageLabel",{}).get("value")})
+    bindings=[]
+    qids={"Karnataka":"Q1185","Andhra Pradesh":"Q1159","Tamil Nadu":"Q1445","Kerala":"Q1186"}
+    for state,qid in qids.items():
+        query=WIKIDATA_QUERY_TEMPLATE.replace("STATE_QID",qid)
+        stem=state.lower().replace(" ","_"); raw_path=ROOT/f"data/raw/wikidata_{stem}.json"
+        (ROOT/f"data/raw/wikidata_{stem}.sparql").write_text(query)
+        if raw_path.exists(): raw=json.loads(raw_path.read_text())
+        else:
+            raw=fetch_json(load_config()["inventory"]["wikidata_endpoint"],params={"query":query,"format":"json"},timeout=300)
+            raw_path.write_text(json.dumps(raw))
+        bindings.extend(raw["results"]["bindings"])
+    qids=set()
+    for b in bindings:
+        for key in ("instance","heritage"):
+            value=b.get(key,{}).get("value","")
+            if value.rsplit("/",1)[-1].startswith("Q"): qids.add(value.rsplit("/",1)[-1])
+    labels=wikidata_entity_labels(qids); out=[]
+    for b in bindings:
+            xy=b["coord"]["value"].removeprefix("Point(").removesuffix(")").split()
+            date=b.get("date",{}).get("value"); year=int(date[:4]) if date and date[:4].isdigit() else None
+            heritage=b.get("heritage",{}).get("value"); instance=b.get("instance",{}).get("value")
+            heritage_qid=heritage.rsplit("/",1)[-1] if heritage else None; instance_qid=instance.rsplit("/",1)[-1] if instance else None
+            out.append({"source":"Wikidata", "source_id":b["item"]["value"].rsplit("/",1)[-1], "name":b.get("itemLabel",{}).get("value"), "lon":float(xy[0]), "lat":float(xy[1]), "tags":json.dumps({"instance":labels.get(instance_qid,instance_qid),"heritage":labels.get(heritage_qid,heritage_qid)},sort_keys=True), "discovery_year":year, "protection_status":labels.get(heritage_qid,heritage_qid)})
     return out
 
 

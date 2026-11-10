@@ -4,8 +4,11 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
+work/
 data/private/**
 !data/private/.gitkeep
+data/raw/*.json
+data/raw/*.geojson
 data/raw/downloads/**
 data/interim/**
 data/processed/private/**

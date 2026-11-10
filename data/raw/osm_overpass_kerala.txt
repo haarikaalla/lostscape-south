@@ -1,0 +1,14 @@
+[out:json][timeout:300];
+area["name"="Kerala"]["boundary"="administrative"]["admin_level"="4"]->.region;
+(
+  nwr(area.region)["historic"="archaeological_site"];
+  nwr(area.region)["archaeological_site"];
+  nwr(area.region)["megalith"];
+  nwr(area.region)["historic"="tomb"];
+  nwr(area.region)["tomb"];
+  nwr(area.region)["historic"="ruins"];
+  nwr(area.region)["ruins"];
+  nwr(area.region)["historic"="fort"];
+  nwr(area.region)["fortification_type"];
+);
+out center tags;

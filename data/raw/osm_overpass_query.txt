@@ -1,0 +1,14 @@
+[out:json][timeout:600];
+area["ISO3166-1"="IN"][admin_level=2]->.india;
+(
+  nwr(area.india)["historic"="archaeological_site"];
+  nwr(area.india)["archaeological_site"];
+  nwr(area.india)["megalith"];
+  nwr(area.india)["historic"="tomb"];
+  nwr(area.india)["tomb"];
+  nwr(area.india)["historic"="ruins"];
+  nwr(area.india)["ruins"];
+  nwr(area.india)["historic"="fort"];
+  nwr(area.india)["fortification_type"];
+);
+out center tags;

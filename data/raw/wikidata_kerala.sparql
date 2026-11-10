@@ -1,0 +1,8 @@
+SELECT DISTINCT ?item ?itemLabel ?coord ?instance ?heritage ?date WHERE {
+  ?item wdt:P625 ?coord; wdt:P131* ?state.
+  VALUES ?state { wd:Q1186 }
+  { ?item wdt:P1435 ?heritage. } UNION { ?item wdt:P31/wdt:P279* wd:Q839954. }
+  OPTIONAL { ?item wdt:P31 ?instance. }
+  OPTIONAL { ?item wdt:P571 ?date. }
+  OPTIONAL { ?item rdfs:label ?itemLabel. FILTER(LANG(?itemLabel)="en") }
+}
