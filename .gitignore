@@ -9,6 +9,9 @@ data/private/**
 !data/private/.gitkeep
 data/raw/*.json
 data/raw/*.geojson
+data/raw/*.csv
+data/raw/*.pdf
+data/raw/CPM_List.txt
 data/raw/downloads/**
 data/interim/**
 data/processed/private/**

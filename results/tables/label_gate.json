@@ -1,12 +1,12 @@
 {
   "generated_at": "2026-11-10",
-  "total_deduplicated": 1140,
-  "primary_total": 46,
+  "total_deduplicated": 1465,
+  "primary_total": 174,
   "primary_by_state": {
-    "Karnataka": 1,
-    "Andhra Pradesh": 1,
-    "Tamil Nadu": 39,
-    "Kerala": 5
+    "Karnataka": 5,
+    "Andhra Pradesh": 4,
+    "Tamil Nadu": 159,
+    "Kerala": 6
   },
   "threshold_total": 100,
   "threshold_per_block": 30,

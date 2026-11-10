@@ -4,6 +4,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import re
 import time
 import unicodedata
 from pathlib import Path
@@ -140,11 +141,26 @@ def wikidata_records() -> list[dict]:
     return out
 
 
+def asi_bhuvan_records() -> list[dict]:
+    """Load the public ASI monument compilation with Bhuvan-derived coordinates."""
+    path=ROOT/"data/raw/asi_wikidata_monuments_min.csv"
+    if not path.exists(): return []
+    frame=pd.read_csv(path)
+    wanted=set(load_config()["region"]["states"]); out=[]
+    for idx,row in frame[frame.state.isin(wanted)].iterrows():
+        coordinate=row.get("coordinate")
+        if not isinstance(coordinate,str) or "," not in coordinate: continue
+        try: lat,lon=(float(v.strip()) for v in coordinate.split(",",1))
+        except ValueError: continue
+        out.append({"source":"ASI-Bhuvan-WLM2018", "source_id":f"ASI-{idx}", "name":row.get("monumentna"), "lon":lon, "lat":lat, "tags":json.dumps({"district":row.get("district"),"circle":row.get("asicircle"),"coordinate_provenance":"Bhuvan compilation"},sort_keys=True), "discovery_year":None, "protection_status":"centrally protected monument/site"})
+    return out
+
+
 def classify(row: pd.Series) -> tuple[str,str]:
     text=" ".join(str(row.get(k) or "") for k in ("name","tags")).lower()
-    primary={"dolmen":"dolmen","cist":"cist","menhir":"menhir","megalith":"megalith","stone circle":"stone_circle","cairn":"cairn","umbrella stone":"umbrella_stone","hood stone":"hood_stone","rock-cut":"rock_cut_cave"}
-    for token, subtype in primary.items():
-        if token in text: return "megalithic_burial", subtype
+    primary={r"\bdolmens?\b":"dolmen",r"\bcists?\b":"cist",r"\bmenhirs?\b":"menhir",r"\bmegalith(?:ic|s)?\b":"megalith",r"\bstone[- ]circles?\b":"stone_circle",r"\bcairns?\b":"cairn",r"\bumbrella (?:stones?|monuments?)\b":"umbrella_stone",r"\bhood stones?\b":"hood_stone",r"\bburial caves?\b":"rock_cut_burial_cave"}
+    for pattern, subtype in primary.items():
+        if re.search(pattern,text): return "megalithic_burial", subtype
     if "tank" in text or "reservoir" in text: return "ancient_tank", "tank"
     if "mound" in text: return "settlement_mound", "mound"
     if "fort" in text: return "fort_or_town_ruin", "fort"
@@ -162,7 +178,7 @@ def public_grid_id(lat: float, lon: float, km: int) -> str:
 
 def main() -> None:
     cfg=load_config(); states=boundaries()
-    df=pd.DataFrame(osm_records()+wikidata_records())
+    df=pd.DataFrame(osm_records()+wikidata_records()+asi_bhuvan_records())
     g=gpd.GeoDataFrame(df, geometry=[Point(xy) for xy in zip(df.lon,df.lat)], crs=4326)
     g=gpd.sjoin(g, states, predicate="within", how="inner").drop(columns=["index_right"])
     classes=g.apply(classify,axis=1,result_type="expand"); g[["class","sub_type"]]=classes

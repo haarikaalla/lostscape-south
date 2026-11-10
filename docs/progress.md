@@ -21,3 +21,12 @@
 - Discovery/documentation year coverage is sparse and comes only from available Wikidata inception/date statements; OSM contributed no discovery years. No dates were inferred.
 - GitHub remote recorded as `https://github.com/haarikaalla/lostscape-south`; GitHub CLI remains unauthenticated and nothing has been pushed.
 
+## 2026-11-10 — Phase 1 enrichment and authorized continuation
+
+- Added the MIT-licensed `prachatos/asi-wikidata` ASI/Bhuvan coordinate compilation and cross-checked the current official ASI protected-monument list.
+- Corrected a caught-before-modeling classifier defect: word-boundary matching now prevents `cistern` from being mislabeled as `cist`.
+- Enriched deduplicated inventory: 1,465 coordinate-supported records. Primary megalithic-burial labels: 174 total — Karnataka 5, Andhra Pradesh 4, Tamil Nadu 159, Kerala 6.
+- The total-positive threshold now passes, but the per-state/provisional-block threshold still fails outside Tamil Nadu.
+- Following explicit user direction to preserve value across all four states and proceed, adopted a hierarchical design: quantitative megalithic modeling where labels support it, a broader archaeological-potential model across all states, and clearly identified sparse-label transfer/case-study results for Karnataka, Andhra Pradesh, and Kerala.
+- No locality-only government-list record is promoted to a spatial label unless a defensible coordinate source is available.
+
