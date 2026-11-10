@@ -1,0 +1,5 @@
+feature,sampled_sill,range_km,method
+elevation_m,96690.6506159505,112.5,sampled empirical variogram; 95% sill
+dry_ndvi_med,0.01788934325631585,87.5,sampled empirical variogram; 95% sill
+built_probability,0.01082540847186953,212.5,sampled empirical variogram; 95% sill
+rain_daily_mean_mm,2.2268298031805362,137.5,sampled empirical variogram; 95% sill

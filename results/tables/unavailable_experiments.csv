@@ -1,0 +1,3 @@
+module,status,available_primary_dates,required_action,available_geology_feature
+temporal_holdout,not_estimable,0.0,obtain documented discovery/publication dates from approved open sources,
+geology_transfer,not_run,,ingest and license-check an open lithology layer,False

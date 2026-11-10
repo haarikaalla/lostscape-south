@@ -25,9 +25,10 @@ def main() -> None:
     distance,_=tree.query(np.radians(features[["latitude","longitude"]].to_numpy()),k=1)
     features["distance_to_known_megalith_km"]=distance[:,0]*6371.0088
     features["label_positive"]=(features.distance_to_known_megalith_km<=3.6).astype("int8")
-    # Approximately 50 km spatial blocks; used only for grouping, never as a feature.
-    features["block_y"]=(features.latitude*111.32//50).astype(int)
-    features["block_x"]=(features.longitude*111.32*np.cos(np.radians(features.latitude))//50).astype(int)
+    # Final block size is configured from the sampled empirical variogram range.
+    block_km=float(cfg["model"]["spatial_block_km"])
+    features["block_y"]=(features.latitude*111.32//block_km).astype(int)
+    features["block_x"]=(features.longitude*111.32*np.cos(np.radians(features.latitude))//block_km).astype(int)
     features["spatial_block"]=features.block_x.astype(str)+"_"+features.block_y.astype(str)
     out=ROOT/"data/private/model_table.csv"; features.to_csv(out,index=False)
     print(features.groupby("feature_file").label_positive.agg(["count","sum"]).to_string())

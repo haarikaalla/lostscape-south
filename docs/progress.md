@@ -56,7 +56,14 @@
 ## 2026-11-10 — Phase 4 coarse PU, uncertainty and conformal experiments completed
 
 - Ran PU bagging with spatially separated calibration blocks for five seeds and four held-out states (20 paired runs); saved raw metrics, uncertainty and private predictions.
-- Coarse PU mean PR-AUC was 0.01087 versus 0.03136 for the best baseline (histogram gradient boosting). The paired Wilcoxon test was not significant (p=0.18935); LostScape-PU therefore does **not** outperform the baseline in this pilot.
-- Observed-label split-conformal coverage averaged 0.92833 at nominal 0.90, with mean set size 0.93754. Sparse calibration positives make state-level estimates unstable and these values do not establish coverage for undiscovered sites.
+- After finalizing 225-km blocks from the Phase-5 variograms and rerunning, coarse PU mean PR-AUC was 0.01502 versus 0.03136 for the best baseline (histogram gradient boosting). The paired Wilcoxon test was not significant (p=0.26110); LostScape-PU therefore does **not** outperform the baseline in this pilot.
+- Observed-label split-conformal coverage averaged 0.84622 at nominal 0.90, with mean set size 0.87478. Some calibration folds contained zero positives. The conformal target therefore failed and is not valid evidence of coverage for undiscovered sites.
 - Added shuffled-label controls and survey-efficiency tables/figures. Metrics count documented positive cells, not newly field-verified discoveries.
+
+## 2026-11-10 — Phase 5 supported coarse experiments completed
+
+- Sampled empirical feature variograms gave approximate 95%-sill ranges of 87.5–212.5 km; finalized the conservative spatial block size at 225 km and reran block-dependent experiments.
+- Completed 120 five-seed ablation runs. Removing terrain caused the largest mean PR-AUC reduction (0.03136 to 0.01524); removing SAR slightly increased mean PR-AUC to 0.03237, so SAR added no demonstrated value at this coarse scale.
+- Completed leave-one-WorldCover-class-out tests for five classes with at least five observed positives. These are land-cover transfer diagnostics, not independent discovery validation.
+- Temporal holdout is not estimable: zero of 174 primary megalithic records have a defensible discovery/documentation year. Geology transfer remains unrun because no licensed lithology feature has yet been ingested.
 

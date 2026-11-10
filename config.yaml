@@ -2,6 +2,8 @@ project:
   name: LostScape-South
   seed: 20261110
   access_date: "2026-11-10"
+model:
+  spatial_block_km: 225
 region:
   states: [Karnataka, Andhra Pradesh, Tamil Nadu, Kerala]
   include_telangana: false

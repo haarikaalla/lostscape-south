@@ -72,6 +72,13 @@
 
 **Date:** 2026-11-10
 **Decision:** Report histogram gradient boosting as the stronger coarse pilot model and retain PU bagging as an evaluated, currently underperforming variant.
-**Evidence:** Across 20 paired state/seed runs, mean PR-AUC was 0.01087 for calibrated PU bagging and 0.03136 for histogram gradient boosting; paired Wilcoxon p=0.18935.
+**Evidence:** After rerunning with final 225-km blocks, across 20 paired state/seed runs mean PR-AUC was 0.01502 for calibrated PU bagging and 0.03136 for histogram gradient boosting; paired Wilcoxon p=0.26110.
 **Reason:** The project rules prohibit cherry-picking. PU assumptions and calibration are especially fragile under strong survey bias and sparse positives.
+
+## D013 — Final coarse spatial block size
+
+**Date:** 2026-11-10
+**Decision:** Use 225-km spatial blocks for block-dependent coarse experiments.
+**Evidence:** Sampled empirical 95%-sill ranges were 87.5 km for dry-season NDVI, 112.5 km for elevation, 137.5 km for rainfall, and 212.5 km for built probability.
+**Reason:** Rounding the largest sampled range upward reduces leakage risk. It also exposes instability from very few calibration blocks, which is reported rather than hidden.
 
